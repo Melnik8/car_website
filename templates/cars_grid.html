@@ -1,0 +1,29 @@
+<form action="/compare" method="get" class="compare-form">
+    <div class="car-grid">
+        {{range .CarModels}}
+        <div class="car-card">
+            <label>
+                <input type="checkbox" name="car_ids" value="{{.ID}}">
+                <img src="{{.Image}}" alt="{{.Name}}">
+                <h4>{{.Name}}</h4>
+                <p>Year: {{.Year}}</p>
+                <p>Manufacturer: {{.ManufacturerName}}</p>
+            </label>
+        </div>
+        {{end}}
+        {{range .FilteredCars}}
+        <div class="car">
+            <label>
+                <input type="checkbox" name="car_ids" value="{{.ID}}">
+                <img src="{{.ImageUrl}}" alt="{{.Name}}">
+                <h2>{{.Name}}</h2>
+                <p>Year: {{.Year}}</p>
+                <p>Manufacturer: {{.ManufacturerName}}</p>
+            </label>
+        </div>
+        {{else}}
+        <p>No results found.</p>
+        {{end}}
+    </div>
+    <button type="submit" class="compare-btn">Compare</button>
+</form>

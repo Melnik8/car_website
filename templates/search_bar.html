@@ -1,0 +1,18 @@
+{{define "search"}}
+<form action="/search" method="get" class="search-bar">
+    <input type="text" name="query" placeholder="Search for a car..." required>
+    <button type="submit">Search</button>
+</form>
+
+{{if .Query}}
+    {{if gt (len .CarModels) 0}}
+        <div class="results">
+            {{range .CarModels}}
+            
+            {{end}}
+        </div>
+    {{else}}
+        <p>No results found.</p>
+    {{end}}
+{{end}}
+{{end}}

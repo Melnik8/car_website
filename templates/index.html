@@ -1,0 +1,21 @@
+{{define "content"}}
+<form method="POST" action="/compare">
+    <div class="compare-button-container">
+        <button type="submit" class="compare-btn">Compare Selected</button>
+    </div>
+    <div class="grid-container">
+        {{range .CarModels}}
+        <div class="grid-item">
+            <input type="checkbox" name="car_ids" value="{{.ID}}" class="compare-checkbox">
+            <a href="/car?id={{.ID}}" class="grid-item-link">
+                <img src="/img/{{.Image}}" alt="{{.Name}}">
+                <div class="overlay">
+                    <h3>{{.Name}}</h3>
+                    <p>{{.Year}}</p>
+                </div>
+            </a>
+        </div>
+        {{end}}
+    </div>
+</form>
+{{end}}

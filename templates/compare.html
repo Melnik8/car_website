@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Title}}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="icon" href="/static/favicon.png" type="image/png">
+</head>
+<body>
+    <header class="header">
+        <a href="/" class="home-button" style="text-decoration: none">
+          <img src="static/favicon.png" alt="Aurora Cars" class="logo">
+        </a>
+    </header>
+    <h1>{{.Title}}</h1>
+    <div class="comparison-container">
+        {{range .CarModels}}
+        <div class="carbox">
+            <img src="/img/{{.Image}}" alt="{{.Name}}" class="car-image">
+            <div class="car-info">
+                <h2>{{.Name}}</h2>
+                <p>Year: {{.Year}}</p>
+                <p>Manufacturer: {{(index $.ManuMap .ManufacturerID).Name}}</p>
+                <p>Country: {{(index $.ManuMap .ManufacturerID).Country}}</p>
+                <p>Founding Year: {{(index $.ManuMap .ManufacturerID).Founded}}</p>
+                <p>Engine: {{.Specifications.Engine}}</p>
+                <p>Horsepower: {{.Specifications.Horsepower}}</p>
+                <p>Transmission: {{.Specifications.Transmission}}</p>
+                <p>Drivetrain: {{.Specifications.Drivetrain}}</p>
+            </div>
+        </div>
+        {{end}}
+    </div>
+</body>
+</html>
+
